@@ -19,7 +19,8 @@ public class Monster {
     public Monster(String name, int personId) {
         this.name = name;
         this.personId = personId;
-        this.playLevel = MAX_PLAY_LEVEL / 2;
+        playLevel = MAX_PLAY_LEVEL / 2;
+        sleepLevel = MAX_SLEEP_LEVEL / 2;
       }
 
     public String getName() {
@@ -36,6 +37,10 @@ public class Monster {
 
     public int getPlayLevel(){
         return playLevel;
+      }
+
+      public int getSleepLevel(){
+        return sleepLevel;
       }
 
     @Override

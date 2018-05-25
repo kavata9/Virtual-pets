@@ -75,5 +75,16 @@ public class MonsterTest {
     Monster savedMonster = Monster.find(testMonster.getId());
     assertEquals(savedMonster.getPersonId(), testPerson.getId());
   }
+  @Test
+  public void monster_instantiatesWithHalfFullPlayLevel(){
+    Monster testMonster = new Monster("Bubbles", 1);
+    assertEquals(testMonster.getPlayLevel(), (Monster.MAX_PLAY_LEVEL / 2));
+  }
+
+  @Test
+  public void monster_instantiatesWithHalfFullSleepLevel(){
+    Monster testMonster = new Monster("Bubbles", 1);
+    assertEquals(testMonster.getSleepLevel(), (Monster.MAX_SLEEP_LEVEL / 2));
+  }
 
 }
