@@ -22,22 +22,35 @@ public class Monster {
         playLevel = MAX_PLAY_LEVEL / 2;
         sleepLevel = MAX_SLEEP_LEVEL / 2;
         foodLevel = MAX_FOOD_LEVEL / 2;
-      }
+    }
 
-      public boolean isAlive() {
-        if (foodLevel <= MIN_ALL_LEVELS ||
-        playLevel <= MIN_ALL_LEVELS ||
-        sleepLevel <= MIN_ALL_LEVELS) {
-          return false;
+    public boolean isAlive() {
+        if (foodLevel <= MIN_ALL_LEVELS || playLevel <= MIN_ALL_LEVELS || sleepLevel <= MIN_ALL_LEVELS) {
+            return false;
         }
         return true;
-      }
+    }
 
-      public void depleteLevels(){
+    public void depleteLevels() {
         playLevel--;
         foodLevel--;
         sleepLevel--;
-      }
+    }
+
+    public void play() {
+        playLevel++;
+    }
+
+    public void sleep() {
+        sleepLevel++;
+    }
+
+    public void feed() {
+        if (foodLevel >= MAX_FOOD_LEVEL) {
+            throw new UnsupportedOperationException("You cannot feed your monster anymore!");
+        }
+        foodLevel++;
+    }
 
     public String getName() {
         return name;
@@ -51,17 +64,17 @@ public class Monster {
         return id;
     }
 
-    public int getPlayLevel(){
+    public int getPlayLevel() {
         return playLevel;
-      }
+    }
 
-      public int getSleepLevel(){
+    public int getSleepLevel() {
         return sleepLevel;
-      }
+    }
 
-      public int getFoodLevel(){
+    public int getFoodLevel() {
         return foodLevel;
-      }
+    }
 
     @Override
     public boolean equals(Object otherMonster) {
