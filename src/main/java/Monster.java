@@ -37,9 +37,12 @@ public class Monster {
         sleepLevel--;
     }
 
-    public void play() {
+    public void play(){
+        if (playLevel >= MAX_PLAY_LEVEL){
+          throw new UnsupportedOperationException("You cannot play with monster anymore!");
+        }
         playLevel++;
-    }
+      }
 
     public void sleep() {
         sleepLevel++;
