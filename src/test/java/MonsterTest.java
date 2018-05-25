@@ -173,4 +173,23 @@ public class MonsterTest {
     assertTrue(testMonster.getPlayLevel() <= Monster.MAX_PLAY_LEVEL);
   }
 
+  @Test(expected = UnsupportedOperationException.class)
+  public void sleep_throwsExceptionIfSleepLevelIsAtMaxValue(){
+    Monster testMonster = new Monster("Bubbles", 1);
+    for(int i = Monster.MIN_ALL_LEVELS; i <= (Monster.MAX_SLEEP_LEVEL); i++){
+      testMonster.sleep();
+    }
+  }
+
+  @Test
+  public void monster_sleepLevelCannotGoBeyondMaxValue(){
+    Monster testMonster = new Monster("Bubbles", 1);
+    for(int i = Monster.MIN_ALL_LEVELS; i <= (Monster.MAX_SLEEP_LEVEL); i++){
+      try {
+        testMonster.sleep();
+      } catch (UnsupportedOperationException exception){ }
+    }
+    assertTrue(testMonster.getSleepLevel() <= Monster.MAX_SLEEP_LEVEL);
+  }
+
 }
