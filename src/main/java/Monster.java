@@ -33,6 +33,12 @@ public class Monster {
         return true;
       }
 
+      public void depleteLevels(){
+        playLevel--;
+        foodLevel--;
+        sleepLevel--;
+      }
+
     public String getName() {
         return name;
     }
